@@ -1,0 +1,28 @@
+<ul>
+    {% for post in site.posts %}
+    <li>
+        {% if post.media.formats.thumb.url %}
+        <img 
+            class="thumb" 
+            src={{ post.media.formats.thumb.url }}
+            alt={{ post.media.alt }}
+        />
+        {% else %}
+        <img 
+            class="thumb" 
+            src="https://placehold.co/600?text=No+media+found&font=roboto" 
+            alt={{ post.media.alt }}
+        />
+        {% endif %}
+        <div class="info">
+            <span class="title">{{ post.title }}</span>
+            {% if post.excerpt %}
+            <div class="excerpt-wrapper">
+                <span class="excerpt">{{ post.excerpt }}</span>
+            </div>
+            {% endif %}
+        </div>
+        <a href={{ post.permalink }}></a>
+    </li>
+    {% endfor %}
+</ul>

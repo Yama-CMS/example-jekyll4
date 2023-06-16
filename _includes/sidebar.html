@@ -1,0 +1,23 @@
+<nav>
+    <ul>
+        {% assign pages = site.pages | where_exp:"item", "item.url != '/404error.html' and item.title" %}
+        {% for page in pages %}
+        <li>
+            {% if page.media.formats.thumb.url %}
+            <img 
+                class="thumb" 
+                src={{ page.media.formats.thumb.url }}
+                alt={{ page.media.alt }}
+            />
+            {% else %}
+            <img 
+                class="thumb" 
+                src="https://placehold.co/40x40" 
+                alt={{ page.media.alt }}
+            />
+            {% endif %}
+            <a href="{{ page.permalink }}">{{ page.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<h1>{{ page.title }}</h1>
+{% if page.media.formats.desktop.url %} 
+<img
+    class="media-desktop" 
+    src={{ page.media.formats.desktop.url }}
+    alt={{ page.media.alt }}
+/>
+{% else %}
+<img
+    class="media-desktop" 
+    src="https://placehold.co/800?text=No+media+found&font=roboto"
+    alt={{ page.media.alt }}
+/>
+{% endif %}
+<div class="content">{{ content }}</div>
